@@ -20,15 +20,16 @@ public class Application {
             System.out.println("0. Выход");
 
             choice = validator.getValidMenuChoice(scanner);
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
                     System.out.println("Введите путь к файлу с текстом:");
-                    String inputFile = scanner.next();
+                    String inputFile = scanner.nextLine();
                     System.out.println("Введите путь к файлу для записи зашифрованного текста:");
-                    String outputFile = scanner.next();
+                    String outputFile = scanner.nextLine();
                     System.out.println("Введите ключ шифрования (число):");
-                    int key = scanner.nextInt();
+                    int key = validator.getValidIntegerInput(scanner);
 
                     Cypher cypher = new Cypher();
                     cypher.encrypt(inputFile, outputFile, key);
@@ -36,11 +37,11 @@ public class Application {
 
                 case 2:
                     System.out.println("Введите путь к файлу с зашифрованным текстом:");
-                    String encryptedFile = scanner.next();
+                    String encryptedFile = scanner.nextLine();
                     System.out.println("Введите путь к файлу для записи расшифрованного текста:");
-                    String decryptedOutputFile = scanner.next();
+                    String decryptedOutputFile = scanner.nextLine();
                     System.out.println("Введите ключ расшифровки (число):");
-                    int decryptKey = scanner.nextInt();
+                    int decryptKey = validator.getValidIntegerInput(scanner);
 
                     Decypher decypher = new Decypher();
                     decypher.decrypt(encryptedFile, decryptedOutputFile, decryptKey);
@@ -48,9 +49,9 @@ public class Application {
 
                 case 3:
                     System.out.println("Введите путь к файлу с зашифрованным текстом:");
-                    String bruteFile = scanner.next();
+                    String bruteFile = scanner.nextLine();
                     System.out.println("Введите путь к файлу для записи результатов brute force:");
-                    String bruteOutputFile = scanner.next();
+                    String bruteOutputFile = scanner.nextLine();
 
                     BruteForceDecypher bruteForceDecypher = new BruteForceDecypher();
                     bruteForceDecypher.decryptByBruteForce(bruteFile, bruteOutputFile);

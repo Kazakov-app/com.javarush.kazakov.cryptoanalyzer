@@ -16,7 +16,7 @@ public class Validator {
                 return scanner.nextInt();
             } else {
                 System.out.println("Некорректный ввод. Пожалуйста, введите число.");
-                scanner.next();
+                scanner.nextLine();
             }
         }
     }
@@ -31,8 +31,8 @@ public class Validator {
                     System.out.println("Некорректный выбор. Пожалуйста, выберите число от 0 до 3.");
                 }
             } else {
-                System.out.println("Некорректный ввод. Пожалуйста, выберите число от 0 до 3.");
-                scanner.next();
+                System.out.println("Некорректный ввод. Пожалуйста, введите число от 0 до 3.");
+                scanner.nextLine();
             }
         }
     }
